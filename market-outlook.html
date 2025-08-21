@@ -58,6 +58,7 @@
                         <a href="#sectors" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-[#403D39]">Sectors</a>
                         <a href="#earnings" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-[#403D39]">Earnings</a>
                         <a href="#outlook" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-[#403D39]">Outlook</a>
+                        <a href="#ai-analysis" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-[#403D39]">AI Analysis</a>
                     </div>
                 </div>
             </div>
@@ -272,6 +273,18 @@
                 </div>
             </div>
         </section>
+
+        <section id="ai-analysis" class="scroll-mt-20 mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-[#252422] sm:text-4xl">AI-Powered Market Insights</h2>
+                <p class="mt-3 max-w-2xl mx-auto text-md text-[#6B7280]">Ask an AI assistant for additional context or analysis on the latest market dynamics.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg max-w-2xl mx-auto">
+                <textarea id="aiPrompt" class="w-full border border-[#CCC5B9] rounded-md p-3 mb-4" placeholder="Ask about market outlook..."></textarea>
+                <button id="aiSubmit" class="px-4 py-2 rounded-md bg-[#005f73] text-white hover:bg-[#0a9396] transition-colors">Generate Analysis</button>
+                <div id="aiResponse" class="mt-4 text-sm text-[#403D39] whitespace-pre-wrap"></div>
+            </div>
+        </section>
     </main>
 
     <button id="backToTop" aria-label="Back to Top" class="hidden fixed bottom-6 right-6 p-3 rounded-full bg-[#005f73] text-white shadow-lg hover:bg-[#0a9396] transition-colors">↑</button>
@@ -351,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function () {
     new Chart(document.getElementById('techConcentrationChart'), {
         type: 'bar',
         data: {
-            labels: ['Mega-Cap Tech', 'Rest of S&P 500'],
+            labels: ['Mega-Cap Tech', 'Rest of S&P 500'].map(wrapLabel),
             datasets: [{
                 label: 'Contribution to YTD Gains (Illustrative)',
                 data: [75, 25],
@@ -373,7 +386,7 @@ document.addEventListener('DOMContentLoaded', function () {
     new Chart(document.getElementById('commsSectorChart'), {
         type: 'bar',
         data: {
-            labels: ['Q2 Earnings Growth', '% of Stocks > 50-Day MA'],
+            labels: ['Q2 Earnings Growth', '% of Stocks > 50-Day MA'].map(wrapLabel),
             datasets: [{
                 label: 'Communications Sector Strength',
                 data: [44, 78],
@@ -396,7 +409,7 @@ document.addEventListener('DOMContentLoaded', function () {
     new Chart(document.getElementById('healthcareChart'), {
         type: 'radar',
         data: {
-            labels: ['Valuation', 'Growth Pipeline', 'Defensive Quality', 'Institutional Buying'],
+            labels: ['Valuation', 'Growth Pipeline', 'Defensive Quality', 'Institutional Buying'].map(wrapLabel),
             datasets: [{
                 label: 'Healthcare Sector',
                 data: [8, 9, 7, 8],
@@ -442,7 +455,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - 80) {
+            if (window.pageYOffset >= sectionTop - 80) {
                 current = section.getAttribute('id');
             }
         });
@@ -465,6 +478,38 @@ document.addEventListener('DOMContentLoaded', function () {
     backToTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    const aiSubmit = document.getElementById('aiSubmit');
+    if (aiSubmit) {
+        aiSubmit.addEventListener('click', async () => {
+            const prompt = document.getElementById('aiPrompt').value.trim();
+            if (!prompt) return;
+            const responseEl = document.getElementById('aiResponse');
+            responseEl.textContent = 'Analyzing...';
+            try {
+                const res = await fetch('https://api.openai.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${window.OPENAI_API_KEY || 'YOUR_API_KEY'}`
+                    },
+                    body: JSON.stringify({
+                        model: 'gpt-3.5-turbo',
+                        messages: [
+                            { role: 'system', content: 'You are a helpful financial analyst.' },
+                            { role: 'user', content: prompt }
+                        ],
+                        max_tokens: 200
+                    })
+                });
+                const data = await res.json();
+                responseEl.textContent = data.choices?.[0]?.message?.content?.trim() || 'No analysis available.';
+            } catch (err) {
+                console.error(err);
+                responseEl.textContent = 'Error fetching analysis.';
+            }
+        });
+    }
 });
 </script>
 </body>
