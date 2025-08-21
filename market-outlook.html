@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Market Outlook: Week of August 18, 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F7F4;
+            color: #403D39;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 280px;
+            max-height: 320px;
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+        .nav-link:hover {
+            color: #005f73;
+        }
+        .active-nav {
+            color: #005f73;
+            border-bottom: 2px solid #005f73;
+        }
+        .tab-button {
+            transition: all 0.3s;
+        }
+        .active-tab {
+            background-color: #005f73;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-[#252422]">Market Intelligence</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#dashboard" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-[#403D39]">Dashboard</a>
+                        <a href="#catalysts" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-[#403D39]">Catalysts</a>
+                        <a href="#sectors" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-[#403D39]">Sectors</a>
+                        <a href="#earnings" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-[#403D39]">Earnings</a>
+                        <a href="#outlook" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-[#403D39]">Outlook</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+
+        <section id="dashboard" class="scroll-mt-20 mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-[#252422] sm:text-4xl">Weekly Dashboard: A Market in Balance</h2>
+                <p class="mt-3 max-w-2xl mx-auto text-md text-[#6B7280]">The market stands at a critical juncture, balancing robust corporate earnings against a complex and uncertain macroeconomic backdrop.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center bg-white p-8 rounded-2xl shadow-lg">
+                <div class="md:col-span-1 text-center">
+                    <h3 class="text-xl font-semibold text-[#252422] mb-2">Prevailing Thesis</h3>
+                    <p class="text-5xl font-bold text-[#005f73]">Cautiously Bullish</p>
+                    <p class="mt-2 text-sm text-[#6B7280]">Strong earnings momentum provides a fundamental floor, but macro risks temper enthusiasm, suggesting a potential consolidation phase.</p>
+                </div>
+                <div class="md:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-[#F8F7F4] p-6 rounded-xl">
+                        <h4 class="font-semibold text-center text-[#252422] mb-3">The Bull Case: Corporate Resilience</h4>
+                        <div class="chart-container h-48 max-h-48">
+                            <canvas id="earningsBeatChart"></canvas>
+                        </div>
+                        <p class="text-center text-xs text-[#6B7280] mt-2">An impressive 81% of S&P 500 companies have exceeded Q2 earnings estimates, showcasing micro-level strength.</p>
+                    </div>
+                    <div class="bg-[#F8F7F4] p-6 rounded-xl flex flex-col justify-center">
+                        <h4 class="font-semibold text-center text-[#252422] mb-3">The Bear Case: Macro Uncertainty</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start"><span class="text-lg mr-2">🔥</span><div><span class="font-semibold">Inflation:</span> Hotter-than-expected PPI report challenges the disinflation narrative.</div></li>
+                            <li class="flex items-start"><span class="text-lg mr-2">⚖️</span><div><span class="font-semibold">Tariffs:</span> Economic impact of new August 7th tariffs remains a significant unknown.</div></li>
+                             <li class="flex items-start"><span class="text-lg mr-2">🏛️</span><div><span class="font-semibold">Fed Policy:</span> High expectations for a rate cut face a test from FOMC minutes and Jackson Hole.</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="catalysts" class="scroll-mt-20 mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-[#252422] sm:text-4xl">This Week's Catalysts</h2>
+                <p class="mt-3 max-w-2xl mx-auto text-md text-[#6B7280]">A series of pivotal events will shape market direction, providing clarity on inflation, economic growth, and monetary policy.</p>
+            </div>
+            <div class="relative">
+                <div class="hidden md:block absolute top-0 bottom-0 left-1/2 w-0.5 bg-[#CCC5B9]/50"></div>
+                <div class="space-y-8 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                    <div class="md:pr-8 md:text-right">
+                        <div class="bg-white p-6 rounded-2xl shadow-md">
+                            <p class="font-bold text-lg text-[#005f73]">Monday</p>
+                            <h3 class="font-semibold text-xl mt-1">NAHB Housing Index</h3>
+                            <p class="text-sm text-[#6B7280] mt-2">A key sentiment check on the rate-sensitive housing sector and builder confidence.</p>
+                        </div>
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div class="md:pl-8">
+                         <div class="bg-white p-6 rounded-2xl shadow-md">
+                            <p class="font-bold text-lg text-[#AE2012]">Wednesday</p>
+                            <h3 class="font-semibold text-xl mt-1">FOMC July Meeting Minutes</h3>
+                            <p class="text-sm text-[#6B7280] mt-2">Scrutinized for internal Fed debates on inflation risks and the criteria for a rate cut.</p>
+                        </div>
+                    </div>
+                    <div class="md:pr-8 md:text-right">
+                        <div class="bg-white p-6 rounded-2xl shadow-md">
+                            <p class="font-bold text-lg text-[#EE9B00]">Thursday</p>
+                            <h3 class="font-semibold text-xl mt-1">August Flash PMI Data</h3>
+                            <p class="text-sm text-[#6B7280] mt-2">The first significant indicator of the economic impact from the August 7th tariffs.</p>
+                        </div>
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div class="md:pl-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-md">
+                            <p class="font-bold text-lg text-[#AE2012]">Thursday - Saturday</p>
+                            <h3 class="font-semibold text-xl mt-1">Jackson Hole Symposium</h3>
+                            <p class="text-sm text-[#6B7280] mt-2">Fed Chair Powell's speech will be parsed for any shifts in monetary policy guidance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sectors" class="scroll-mt-20 mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-[#252422] sm:text-4xl">Sector Deep Dive</h2>
+                <p class="mt-3 max-w-2xl mx-auto text-md text-[#6B7280]">Explore bullish opportunities and underlying drivers across key market sectors. Click a tab to view detailed analysis.</p>
+            </div>
+            <div>
+                <div class="mb-6 flex flex-wrap justify-center gap-2">
+                    <button class="tab-button active-tab px-4 py-2 rounded-full text-sm font-semibold" data-tab="tech">Technology & AI</button>
+                    <button class="tab-button px-4 py-2 rounded-full text-sm font-semibold" data-tab="comms">Communications</button>
+                    <button class="tab-button px-4 py-2 rounded-full text-sm font-semibold" data-tab="healthcare">Healthcare</button>
+                </div>
+                <div id="sector-content" class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg min-h-[450px]">
+                    <div class="tab-content" id="tech-content">
+                        <h3 class="text-2xl font-bold text-[#252422] mb-4">Technology & AI: The Engine of the Bull Market</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <p class="text-[#6B7280] mb-4">The Information Technology sector remains the undisputed market leader, buoyed by the persistent Artificial Intelligence narrative. Strong Q2 earnings have validated massive investments in AI, but this dominance is a double-edged sword, creating risks of lofty valuations and high concentration.</p>
+                                <h4 class="font-semibold mb-2">Key Stocks to Watch:</h4>
+                                <ul class="list-disc list-inside text-[#403D39] space-y-1">
+                                    <li><span class="font-semibold">Nvidia (NVDA) & Microsoft (MSFT):</span> Central pillars of the AI investment thesis.</li>
+                                    <li><span class="font-semibold">Palo Alto Networks (PANW):</span> Bellwether for cybersecurity spending.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-center text-[#252422] mb-3">Market Concentration Risk</h4>
+                                <div class="chart-container">
+                                    <canvas id="techConcentrationChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content hidden" id="comms-content">
+                        <h3 class="text-2xl font-bold text-[#252422] mb-4">Communications: A Profile in Strength and Breadth</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <p class="text-[#6B7280] mb-4">The Communications sector presents a compelling profile, delivering the strongest Q2 earnings growth (44% YoY). Technically, it shows bullish breadth, with the highest percentage of companies trading above their 50-day moving averages. This suggests a healthier, more sustainable rally compared to the broader market.</p>
+                                <h4 class="font-semibold mb-2">Key Stocks to Watch:</h4>
+                                <ul class="list-disc list-inside text-[#403D39] space-y-1">
+                                    <li><span class="font-semibold">Meta Platforms (META):</span> Supported by strong analyst ratings with an average price target of ~$867.</li>
+                                    <li><span class="font-semibold">Alphabet (GOOGL):</span> Core holding with stable growth in AI, search, and cloud.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-center text-[#252422] mb-3">Fundamental & Technical Strength</h4>
+                                <div class="chart-container">
+                                    <canvas id="commsSectorChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content hidden" id="healthcare-content">
+                        <h3 class="text-2xl font-bold text-[#252422] mb-4">The Healthcare Rotation Thesis: A Search for Value</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <p class="text-[#6B7280] mb-4">Emerging as an undervalued opportunity, Healthcare is seeing increased institutional buying. This signals a potential rotation from high-growth sectors into areas with more attractive risk-reward profiles, combining defensive characteristics with strong product pipelines (e.g., GLP-1 drugs).</p>
+                                <h4 class="font-semibold mb-2">Key Stocks to Watch:</h4>
+                                <ul class="list-disc list-inside text-[#403D39] space-y-1">
+                                    <li><span class="font-semibold">UnitedHealth (UNH):</span> Endorsed by "smart money" investors like Berkshire Hathaway.</li>
+                                    <li><span class="font-semibold">Eli Lilly (LLY):</span> A long-term leader in the burgeoning weight-loss drug market.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-center text-[#252422] mb-3">Value vs. Growth Profile</h4>
+                                <div class="chart-container">
+                                    <canvas id="healthcareChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="earnings" class="scroll-mt-20 mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-[#252422] sm:text-4xl">Earnings Spotlight</h2>
+                <p class="mt-3 max-w-2xl mx-auto text-md text-[#6B7280]">This week's reports offer a bottom-up view of consumer health, enterprise spending, and international economic activity.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-md">
+                    <h3 class="text-xl font-semibold mb-3 text-[#005f73]">Retail Referendum</h3>
+                    <p class="text-sm text-[#6B7280] mb-4">Reports will reveal the true state of the American consumer amid inflation and higher borrowing costs.</p>
+                    <ul class="font-medium text-[#403D39] space-y-2">
+                        <li>Walmart (WMT)</li>
+                        <li>Home Depot (HD)</li>
+                        <li>Target (TGT)</li>
+                        <li>Lowe's (LOW)</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-md">
+                    <h3 class="text-xl font-semibold mb-3 text-[#005f73]">Enterprise Health Check</h3>
+                    <p class="text-sm text-[#6B7280] mb-4">Tech earnings will signal the durability of corporate IT, software, and cybersecurity budgets.</p>
+                    <ul class="font-medium text-[#403D39] space-y-2">
+                        <li>Palo Alto Networks (PANW)</li>
+                        <li>Analog Devices (ADI)</li>
+                        <li>Intuit (INTU)</li>
+                        <li>Workday (WDAY)</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-md md:col-span-2 lg:col-span-1">
+                    <h3 class="text-xl font-semibold mb-3 text-[#005f73]">International Barometer</h3>
+                    <p class="text-sm text-[#6B7280] mb-4">Results from Chinese tech leaders will offer a proxy for the health of the world's second-largest economy.</p>
+                    <ul class="font-medium text-[#403D39] space-y-2">
+                        <li>Alibaba (BABA)</li>
+                        <li>Baidu (BIDU)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="outlook" class="scroll-mt-20">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-[#252422] sm:text-4xl">Strategic Outlook & Key Risks</h2>
+                <p class="mt-3 max-w-2xl mx-auto text-md text-[#6B7280]">The market's record altitude is precarious. A balanced strategy is required, focusing on secular growth while remaining aware of key macroeconomic risks.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="border-2 border-[#AE2012]/50 bg-white p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold text-[#AE2012] mb-2">A Hawkish Surprise</h3>
+                    <p class="text-sm text-[#6B7280]">Fed commentary that pushes back against a September rate cut could roil markets and undermine equity valuations.</p>
+                </div>
+                <div class="border-2 border-[#AE2012]/50 bg-white p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold text-[#AE2012] mb-2">Negative Tariff Shock</h3>
+                    <p class="text-sm text-[#6B7280]">Weak PMI data could ignite fears of a growth slowdown, overriding the positive corporate earnings narrative.</p>
+                </div>
+                <div class="border-2 border-[#AE2012]/50 bg-white p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold text-[#AE2012] mb-2">Valuation & Concentration</h3>
+                    <p class="text-sm text-[#6B7280]">Mega-cap tech stocks are priced for perfection, leaving little margin of safety against any negative catalyst.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <button id="backToTop" aria-label="Back to Top" class="hidden fixed bottom-6 right-6 p-3 rounded-full bg-[#005f73] text-white shadow-lg hover:bg-[#0a9396] transition-colors">↑</button>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const palette = {
+        primary: '#005f73',
+        secondary: '#0a9396',
+        accent: '#ee9b00',
+        danger: '#ae2012',
+        neutral: '#e9d8a6',
+        text: '#403D39',
+        lightBg: '#F8F7F4'
+    };
+
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        return Array.isArray(label) ? label.join(' ') : label;
+    };
+
+    const wrapLabel = (label, maxLen = 16) => {
+        if (typeof label !== 'string' || label.length <= maxLen) return label;
+        const words = label.split(' ');
+        const lines = [];
+        let currentLine = '';
+        words.forEach(word => {
+            if ((currentLine + ' ' + word).trim().length > maxLen) {
+                lines.push(currentLine.trim());
+                currentLine = word;
+            } else {
+                currentLine = (currentLine + ' ' + word).trim();
+            }
+        });
+        if (currentLine) lines.push(currentLine.trim());
+        return lines;
+    };
+
+    const defaultChartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: { color: palette.text, font: { family: "'Inter', sans-serif" } }
+            },
+            tooltip: {
+                callbacks: { title: tooltipTitleCallback },
+                bodyFont: { family: "'Inter', sans-serif" },
+                titleFont: { family: "'Inter', sans-serif" }
+            }
+        }
+    };
+
+    new Chart(document.getElementById('earningsBeatChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Exceeded Estimates', 'Missed Estimates'],
+            datasets: [{
+                data: [81, 19],
+                backgroundColor: [palette.secondary, palette.neutral],
+                borderColor: palette.lightBg,
+                borderWidth: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: { callbacks: { title: tooltipTitleCallback } }
+            },
+            cutout: '70%'
+        }
+    });
+
+    new Chart(document.getElementById('techConcentrationChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Mega-Cap Tech', 'Rest of S&P 500'],
+            datasets: [{
+                label: 'Contribution to YTD Gains (Illustrative)',
+                data: [75, 25],
+                backgroundColor: [palette.primary, palette.neutral],
+                barPercentage: 0.6,
+                categoryPercentage: 0.6
+            }]
+        },
+        options: {
+            ...defaultChartOptions,
+            indexAxis: 'y',
+            scales: {
+                x: { ticks: { callback: value => value + '%' } },
+                y: { grid: { display: false } }
+            }
+        }
+    });
+
+    new Chart(document.getElementById('commsSectorChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Q2 Earnings Growth', '% of Stocks > 50-Day MA'],
+            datasets: [{
+                label: 'Communications Sector Strength',
+                data: [44, 78],
+                backgroundColor: [palette.secondary, palette.accent]
+            }]
+        },
+        options: {
+            ...defaultChartOptions,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { callback: value => value + '%' }
+                },
+                x: { grid: { display: false } }
+            }
+        }
+    });
+
+    new Chart(document.getElementById('healthcareChart'), {
+        type: 'radar',
+        data: {
+            labels: ['Valuation', 'Growth Pipeline', 'Defensive Quality', 'Institutional Buying'],
+            datasets: [{
+                label: 'Healthcare Sector',
+                data: [8, 9, 7, 8],
+                fill: true,
+                backgroundColor: 'rgba(10, 147, 150, 0.2)',
+                borderColor: palette.secondary,
+                pointBackgroundColor: palette.secondary,
+            }]
+        },
+        options: {
+            ...defaultChartOptions,
+            plugins: { legend: { display: false } },
+            scales: {
+                r: {
+                    angleLines: { color: '#CCC5B9' },
+                    grid: { color: '#CCC5B9' },
+                    pointLabels: { font: { size: 12 } },
+                    ticks: { display: false, beginAtZero: true, max: 10 }
+                }
+            }
+        }
+    });
+
+    const tabs = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(item => item.classList.remove('active-tab'));
+            tab.classList.add('active-tab');
+            const target = tab.getAttribute('data-tab');
+            tabContents.forEach(content => {
+                content.classList.add('hidden');
+                if (content.id === `${target}-content`) {
+                    content.classList.remove('hidden');
+                }
+            });
+        });
+    });
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 80) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active-nav');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active-nav');
+            }
+        });
+    });
+
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.remove('hidden');
+        } else {
+            backToTopBtn.classList.add('hidden');
+        }
+    });
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+</script>
+</body>
+</html>
