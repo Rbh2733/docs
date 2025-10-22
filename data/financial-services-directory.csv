@@ -1,0 +1,79 @@
+Category,Subcategory,Company Name,Key Features,Fees/Rates,Best For
+Investing,Traditional Brokerage,Fidelity Investments,"$5.9T AUM, commission-free trading, ZERO expense ratio index funds",0% commissions,Buy-and-hold + active traders
+Investing,Traditional Brokerage,Charles Schwab,"Absorbed TD Ameritrade, thinkorswim platform, 400+ branches",0% commissions,Comprehensive trading
+Investing,Traditional Brokerage,Vanguard,"$10.1T AUM (largest), investor-owned, ultra-low-cost index funds",0% commissions,Buy-and-hold investors
+Investing,Traditional Brokerage,E*TRADE,"Power E*TRADE platform, 5000+ no-fee mutual funds",0% commissions,Active and passive traders
+Investing,Traditional Brokerage,Merrill Edge,"Integrated with Bank of America, Preferred Rewards",0% commissions,BofA customers
+Investing,Traditional Brokerage,Interactive Brokers,"150 global markets, lowest margin rates, institutional-grade",0% commissions,International + advanced traders
+Investing,Discount Brokerage,Robinhood,"Mobile-first, 1-3% IRA match, fractional shares, crypto",0% commissions,Beginners + mobile users
+Investing,Discount Brokerage,Webull,"Advanced mobile charting, free Level 2 data, 24/7 support",0% commissions,Active mobile traders
+Investing,Discount Brokerage,Public,"No PFOF on equities, 5.5% bond account, social features",0% commissions,Transparency-focused
+Investing,Discount Brokerage,Ally Invest,"$0.50 options contracts (lowest), 17000+ no-fee mutual funds",$0.50 options,Options traders
+Investing,Robo-Advisor,Betterment,"0.25% fee, original robo (2010), tax-loss harvesting",0.25% annual,Goal-based planning
+Investing,Robo-Advisor,Wealthfront,"0.25% fee, Path planning, 17+ asset classes",0.25% annual,Comprehensive planning
+Investing,Robo-Advisor,SoFi Automated,"$0 management fee (unique), CFP meeting included",0% fee,Cost-conscious investors
+Investing,Robo-Advisor,Fidelity Go,"FREE under $25K, uses Fidelity Flex funds",0% under $25K,Small account holders
+Investing,Robo-Advisor,Vanguard Digital Advisor,"0.15% fee (lowest), #1 Morningstar-rated 2025",0.15% annual,Low-cost passive investors
+Investing,Cryptocurrency,Coinbase,"290+ coins, S&P 500 public, FDIC-insured USD",0% with Coinbase One,Mainstream crypto investors
+Investing,Cryptocurrency,Kraken,"240+ coins, never hacked, 0-0.40% on Pro",0-0.40% fees,Security-focused traders
+Investing,Cryptocurrency,Gemini,"160+ coins, NYDFS-regulated, all 50 states",Varies,Regulated environment
+Investing,Real Estate Crowdfunding,Fundrise,"$7B+ portfolio, 14 funds, private REITs",0.85% + 0.15%,Non-accredited investors
+Investing,Real Estate Crowdfunding,Arrived,"Single-family rentals, 6-10% returns, quarterly dividends",$0.15% annual,Residential property
+Investing,Real Estate Crowdfunding,CrowdStreet,"Commercial focus, 12.9% realized IRR, $4.4B invested",Varies,Accredited investors
+Investing,Private Equity/VC,Republic,"$10-$100 minimums, startups/real estate/gaming/crypto",Varies,Non-accredited VC access
+Investing,Private Equity/VC,SeedInvest,"~1% accepted (selective), $150M+ invested",Varies,Quality-focused VC investors
+Investing,Alternative Investments,Yieldstreet,"10 asset classes, $6B+ invested, 7.4% returns",Varies,Alternative diversification
+Investing,Alternative Investments,Masterworks,"Fine art investing, 985K+ investors, 17.6-21.5% exits",1.5% + 20% profit,Art investors
+Banking,National Bank,Chase,"5000+ branches, 16000+ ATMs, full product suite",0.01% savings,Branch access needs
+Banking,National Bank,Bank of America,"Nationwide branches, Preferred Rewards program",0.01% savings,Branch banking
+Banking,National Bank,Capital One,"3.50% online savings (360), hybrid model",3.50% savings,High-yield + branches
+Banking,Online Bank,Varo Money,"5.00% APY (highest), mobile-first, fee-free",5.00% savings,Highest APY seekers
+Banking,Online Bank,SoFi,"Up to 4.50% APY (with boost), 55K+ ATMs",3.80-4.50% savings,Integrated fintech users
+Banking,Online Bank,Ally Bank,"3.40-3.50% APY, 75K+ ATMs, 24/7 support",3.40-3.50% savings,Customer service
+Banking,Online Bank,Marcus by Goldman Sachs,"3.50-3.65% APY, savings/CD focus",3.50-3.65% savings,Savings specialists
+Banking,Credit Union,Navy Federal,"Military/veterans/families, ~300 branches",Competitive rates,Military families
+Banking,Credit Union,Pentagon Federal,"Open charter (anyone), 2.9M+ members",Competitive rates,Open membership
+Banking,Credit Union,Alliant,"3.10% savings APY, 80K+ ATMs",3.10% savings,High-yield CU
+Banking,Neobank,Chime,"10M+ members, no fees, SpotMe $200 overdraft",No fees,No-fee banking
+Banking,Neobank,Current,"Early paycheck (2 days), savings pods 4.00% APY",4.00% pods,Early paycheck
+Banking,Neobank,Revolut,"Multi-currency, crypto/stock trading",Varies,International users
+Credit,Credit Card - Travel,Chase Sapphire Reserve,"$795/yr, airport lounges, 125K bonus points",$795 annual fee,Premium travelers
+Credit,Credit Card - Travel,Capital One Venture X,"$395/yr, 10x Capital One Travel",$395 annual fee,Capital One travelers
+Credit,Credit Card - Cash Back,Wells Fargo Active Cash,"2% on everything, up to 21-month intro APR",No annual fee,Simple cash back
+Credit,Credit Card - Cash Back,Citi Double Cash,2% (1% purchase + 1% payment),No annual fee,Straightforward rewards
+Credit,Personal Loan,SoFi,"8.99-25.81% APR, unemployment protection, no fees",8.99-25.81% APR,Excellent credit
+Credit,Personal Loan,LightStream,"6.49-25.29% APR, Rate Beat Program",6.49-25.29% APR,Excellent credit
+Credit,Personal Loan,Upgrade,"8.49-35.99% APR, 600+ credit",8.49-35.99% APR,Fair credit (600+)
+Credit,Mortgage,Rocket Mortgage,"Largest US lender, 1% down ONE+, 22-day close",Varies,Digital-first homebuyers
+Credit,Mortgage,Better.com,"Low rates, digital-first, discount options",Varies,Tech-savvy buyers
+Credit,Student Loan Refi,SoFi,"4.99-9.99% fixed, unemployment protection",4.99-9.99% fixed,Career support seekers
+Credit,Student Loan Refi,Earnest,"4.35-9.99% fixed, customizable terms",4.35-9.99% fixed,Customization seekers
+Credit,HELOC,Bank of America,"$10K-$1M, 85% LTV, 0.25% autopay discount",0.25% autopay discount,BofA customers
+Credit,Auto Loan,PenFed,"From 5.19% APR, private party sales allowed",From 5.19% APR,Credit union members
+Insurance,Life Insurance,Northwestern Mutual,"$8.2B dividend 2025 (largest), best customer service",Varies,Best customer service
+Insurance,Life Insurance,MassMutual,"$2.5B dividend 2025, best whole life 4 years",Varies,Whole life focus
+Insurance,Life Insurance,State Farm,"Best term life (Bankrate 2022-2025), 19K+ agents",Varies,Term life
+Insurance,Health Insurance,UnitedHealthcare,"15% market share (largest), 1.7M providers",Varies,Largest network
+Insurance,Health Insurance,Kaiser Permanente,"4.17/5 stars, 4.20 NCQA (highest), integrated care",Varies,Integrated care
+Insurance,Auto Insurance,State Farm,"$205/month avg, 19K+ agents, best teens",~$205/month,Teens + agents
+Insurance,Auto Insurance,USAA,"$139/month avg (cheapest top), military only",$139/month avg,Military families
+Insurance,Auto Insurance,GEICO,"$29/month minimum advertised, 16+ discounts",From $29/month,Lowest advertised rates
+Insurance,Home/Renters,Amica,"#1 overall, 5-star, best claims",~$97/month,Best overall
+Insurance,Home/Renters,USAA,"737 J.D. Power (highest), military only",Varies,Military families
+Insurance,Comparison Platform,Policygenius,"Life/home/auto/disability, 4.8/5, all 50 states",Free,Multi-line shopping
+Insurance,Comparison Platform,The Zebra,"100+ carriers, real-time quotes",Free,No spam
+Financial Tools,Budgeting,YNAB,"$14.99/month or $99/year, zero-based budgeting",$14.99/month,Zero-based budgeting
+Financial Tools,Budgeting,Monarch Money,"$8.33/month (annual), flex budgeting",$8.33-14.99/month,Household budgeting
+Financial Tools,Budgeting,Personal Capital,"FREE, investment tool + budgeting",Free,Free comprehensive
+Financial Tools,Credit Monitoring,Experian,"Free/Premium, FICO, identity theft insurance",$0-34.99/month,Three-bureau access
+Financial Tools,Credit Monitoring,Credit Karma,"Completely FREE, 2 bureaus, VantageScore",Free,Free monitoring
+Financial Tools,Tax Prep,TurboTax,"Most popular, Live/Full Service options",Free to premium,Most popular
+Financial Tools,Tax Prep,H&R Block,Free federal and state (no income restrictions),Free + premium,Free no restrictions
+Financial Tools,Tax Prep,Cash App Taxes,"Completely free federal and state, no upsells",Free,Totally free
+Financial Tools,Payments,PayPal,"436M accounts, free personal US, 160+ countries",2.29% merchants,Most established
+Financial Tools,Payments,Venmo,"97M projected 2025, social feed, teen accounts",Varies,Social payments
+Financial Tools,Payments,Zelle,"145M enrolled, completely FREE, instant",Free,Bank integration
+Financial Tools,BNPL,Affirm,"16.9M+ users, 0-36% APR, no fees",0-36% APR,No late fees
+Financial Tools,BNPL,Klarna,"150M+ worldwide, shopping app with rewards",3.29-5.99% merchant,Global leader
+Financial Tools,Expense Management,Expensify,"Free (individuals), scan receipts, Card",$0-9/user,All-in-one
+Financial Tools,Expense Management,Brex,"Corporate cards, AI categorization, instant cards",Varies,Startup focus
