@@ -1,0 +1,15 @@
+TIER 2 (EMERGING) - STOCK SCORECARD,,,,,,,,,,,,,,
+Target Allocation: 30% | Max Position: 8% | Focus: High Growth with Emerging Moats,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+Symbol,Company,Price,Mkt Cap ($B),P/S Score (0-100),PEG Score (0-100),Valuation Avg,Scale Score (0-100),Gross Margin (0-100),NRR Score (0-100),Quality Avg,Rev Growth (0-100),Growth Accel (0-100),TAM Score (0-100),Growth Avg,6M Return (0-100),Rel Strength (0-100),Momentum Avg,Moat Dev (0-100),Op Leverage (0-100),Scale/Moat Avg,COMPOSITE SCORE,RATING,TARGET %,CURRENT %,ACTION,NOTES
+PLTR,Palantir,$28,65,60,75,=AVERAGE(E6:F6),85,100,95,=AVERAGE(H6:J6),90,85,100,=AVERAGE(L6:N6),85,100,=AVERAGE(P6:Q6),100,100,=AVERAGE(S6:T6),=E6*0.18+H6*0.25+L6*0.35+P6*0.15+S6*0.07,"=IF(V6>=85,""Strong Buy"",IF(V6>=75,""Buy"",IF(V6>=65,""Hold"",IF(V6>=50,""Reduce"",""Sell""))))",6%,5.8%,"=IF(V6>=75,""Add/Hold"",IF(V6>=65,""Monitor"",""Trim""))",Gov contracts + cloud partnerships
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,54 @@
+3-TIER STOCK RATING SYSTEM - CONFIGURATION,,,
+,,,
+PORTFOLIO ALLOCATION TARGETS,,,
+Tier,Target %,Min %,Max %
+Tier 1 (Core),45,35,55
+Tier 2 (Emerging),30,20,40
+Tier 3 (Moonshots),20,10,30
+Cash,5,0,15
+TOTAL,100,,
+,,,
+TIER 1 (CORE) - COMPONENT WEIGHTS,,,
+Component,Weight %,,
+Valuation Score,20,,
+Quality Score,30,,
+Growth Score,30,,
+Momentum Score,10,,
+Financial Health Score,10,,
+TOTAL,100,,
+,,,
+TIER 2 (EMERGING) - COMPONENT WEIGHTS,,,
+Component,Weight %,,
+Valuation Score,18,,
+Quality Score,25,,
+Growth Score,35,,
+Momentum Score,15,,
+Scale & Moat Score,7,,
+TOTAL,100,,
+,,,
+TIER 3 (MOONSHOTS) - COMPONENT WEIGHTS,,,
+Component,Weight %,,
+Valuation Score,10,,
+Quality Score,15,,
+Growth Score,45,,
+Momentum Score,20,,
+Disruption Potential Score,10,,
+TOTAL,100,,
+,,,
+RATING THRESHOLDS,,,
+Composite Score,Rating,Action,Stars
+85-100,Strong Buy,Add/Hold,⭐⭐⭐⭐⭐
+75-84,Buy,Add/Hold,⭐⭐⭐⭐
+65-74,Hold,Monitor,⭐⭐⭐
+50-64,Reduce,Trim Position,⭐⭐
+0-49,Sell,Exit Position,⭐
+,,,
+POSITION SIZING GUIDELINES,,,
+Tier 1 Maximum Position Size,15%,,
+Tier 2 Maximum Position Size,8%,,
+Tier 3 Maximum Position Size,3%,,
+,,,
+RISK MANAGEMENT,,,
+Tier 3 Stop Loss,-40%,from entry,
+Tier 2 Stop Loss,-30%,from entry (optional),
+Maximum Portfolio Drawdown Alert,-20%,,
