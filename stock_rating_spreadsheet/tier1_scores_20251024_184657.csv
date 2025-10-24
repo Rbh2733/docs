@@ -1,0 +1,6 @@
+symbol,price,market_cap,valuation_score,quality_score,growth_score,momentum_score,financial_health_score,composite_score,rating
+GOOGL,140.5,1800,72,95,70,90,100,82.4,Buy ⭐⭐⭐⭐
+AAPL,178.25,2800,68,92,65,85,95,79.1,Buy ⭐⭐⭐⭐
+MSFT,372.15,2750,75,98,75,92,98,85.3,Strong Buy ⭐⭐⭐⭐⭐
+NVDA,495.2,1200,70,95,95,100,90,88.7,Strong Buy ⭐⭐⭐⭐⭐
+META,485.3,1250,78,88,72,88,92,81.2,Buy ⭐⭐⭐⭐

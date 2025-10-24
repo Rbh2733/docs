@@ -1,0 +1,38 @@
+{
+  "tier1": [
+    "GOOGL",
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "META",
+    "AMZN",
+    "TSLA",
+    "V",
+    "MA",
+    "JPM"
+  ],
+  "tier2": [
+    "PLTR",
+    "SNOW",
+    "DDOG",
+    "CRWD",
+    "NET",
+    "MDB",
+    "DKNG",
+    "TDOC",
+    "SQ",
+    "SHOP"
+  ],
+  "tier3": [
+    "RKLB",
+    "IONQ",
+    "HOOD",
+    "SOFI",
+    "COIN",
+    "RIVN",
+    "LCID",
+    "OPEN",
+    "BROS",
+    "SMCI"
+  ]
+}

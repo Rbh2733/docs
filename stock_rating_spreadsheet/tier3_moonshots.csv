@@ -1,0 +1,15 @@
+TIER 3 (MOONSHOTS) - STOCK SCORECARD,,,,,,,,,,,,,
+Target Allocation: 20% | Max Position: 3% | Focus: Explosive Growth & Disruption | STOP LOSS: -40%,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Symbol,Company,Price,Mkt Cap ($B),Entry Price,Stop Loss (-40%),P/S Score (0-100),Valuation Avg,Gross Margin (0-100),Path to Profit (0-100),Quality Avg,Rev Growth (0-100),TAM Score (0-100),Growth Accel (0-100),Growth Avg,6M Return (0-100),Volume (0-100),Momentum Avg,Market Disrupt (0-100),Tech Moat (0-100),Disruption Avg,COMPOSITE SCORE,RATING,TARGET %,CURRENT %,ACTION,NOTES
+RKLB,Rocket Lab,$9.50,4.5,$8.20,=E6*0.6,70,70,85,80,=AVERAGE(I6:J6),95,100,85,=AVERAGE(L6:N6),100,100,=AVERAGE(P6:Q6),95,90,=AVERAGE(S6:T6),=G6*0.10+I6*0.15+L6*0.45+P6*0.20+S6*0.10,"=IF(V6>=85,""Strong Buy"",IF(V6>=75,""Buy"",IF(V6>=65,""Hold"",IF(V6>=50,""Reduce"",""Sell""))))",2.5%,2.1%,"=IF(C6<=F6,""STOP LOSS HIT"",IF(V6>=75,""Add/Hold"",IF(V6>=65,""Monitor"",""Trim"")))",Creating cheap space access market
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,

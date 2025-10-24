@@ -1,0 +1,17 @@
+TIER 1 (CORE) - STOCK SCORECARD,,,,,,,,,,,,,,,,
+Target Allocation: 45% | Max Position: 15% | Focus: Quality & Stability,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+STOCK INFO,,,,VALUATION (20%),,,,QUALITY (30%),,,,GROWTH (30%),,,
+Symbol,Company,Price,Mkt Cap ($B),P/E Score,FCF Yield Score,PEG Score,Val Total,ROIC Score,Margin Score,Moat Score,Qual Total,Rev Growth Score,EPS Growth Score,Growth Total,
+Symbol,Company,Price,Mkt Cap,P/E (0-100),FCF Yield (0-100),PEG (0-100),Valuation Avg,ROIC (0-100),Op Margin (0-100),Moat (0-100),Quality Avg,Revenue Growth (0-100),EPS Growth (0-100),Growth Avg,12M Return (0-100),Rel Strength (0-100),Technical (0-100),Momentum Avg,Net Cash (0-100),FCF Gen (0-100),Fin Health Avg,COMPOSITE SCORE,RATING,TARGET %,CURRENT %,ACTION,NOTES
+GOOGL,Alphabet Inc,$140,1800,85,70,60,=AVERAGE(E7:G7),100,100,100,=AVERAGE(I7:K7),55,70,=AVERAGE(M7:N7),80,75,100,=AVERAGE(P7:R7),100,100,=AVERAGE(T7:U7),=E7*0.20+I7*0.30+M7*0.30+P7*0.10+T7*0.10,"=IF(W7>=85,""Strong Buy"",IF(W7>=75,""Buy"",IF(W7>=65,""Hold"",IF(W7>=50,""Reduce"",""Sell""))))",12%,11%,"=IF(W7>=75,""Add/Hold"",IF(W7>=65,""Monitor"",""Trim""))",Network effects + scale moat
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,

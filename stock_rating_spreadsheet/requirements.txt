@@ -1,0 +1,23 @@
+# 3-Tier Stock Rating System - Automation Requirements
+
+# Core data fetching
+yfinance>=0.2.32
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Excel generation
+openpyxl>=3.1.0
+xlsxwriter>=3.1.0
+
+# Web dashboard (optional)
+jinja2>=3.1.0
+plotly>=5.17.0
+
+# Scheduling (optional)
+schedule>=1.2.0
+
+# Alerts (optional)
+requests>=2.31.0
+
+# Data analysis
+scipy>=1.11.0
