@@ -1,0 +1,6 @@
+symbol,price,market_cap,valuation_score,quality_score,growth_score,momentum_score,disruption_score,composite_score,rating,stop_loss_price
+RKLB,9.5,4.5,78,75,94,96,93,89.9,Strong Buy ⭐⭐⭐⭐⭐,5.7
+IONQ,12.35,2.8,55,65,95,88,95,85.2,Strong Buy ⭐⭐⭐⭐⭐,7.41
+HOOD,28.9,25,62,70,82,85,80,78.3,Buy ⭐⭐⭐⭐,17.34
+SOFI,10.85,11,68,72,80,78,75,76.1,Buy ⭐⭐⭐⭐,6.51
+COIN,235.4,58,45,62,70,72,68,64.8,Hold ⭐⭐⭐,141.24

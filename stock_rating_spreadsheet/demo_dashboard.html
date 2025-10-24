@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Rating Dashboard - DEMO</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h1 { color: #667eea; margin-bottom: 10px; font-size: 2.5em; }
+        .timestamp { color: #666; font-size: 0.9em; }
+        .demo-note {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            color: #856404;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .summary-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .summary-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .summary-card .number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #333;
+        }
+        .tier-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        .tier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+        .tier-title {
+            font-size: 1.8em;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .tier-badge {
+            background: #667eea;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        td { padding: 15px; border-bottom: 1px solid #eee; }
+        tbody tr:hover { background: #f8f9fa; transition: background 0.2s; }
+        .stock-symbol {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #667eea;
+        }
+        .score {
+            font-weight: bold;
+            padding: 5px 12px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .score-excellent { background: #10b981; color: white; }
+        .score-good { background: #3b82f6; color: white; }
+        .score-moderate { background: #f59e0b; color: white; }
+        .score-poor { background: #ef4444; color: white; }
+        .rating { font-size: 1.1em; }
+        .alerts {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .alerts h3 { color: #856404; margin-bottom: 15px; }
+        .alert-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 5px;
+            font-size: 0.95em;
+        }
+        .alert-buy { border-left: 4px solid #10b981; }
+        .alert-warning { border-left: 4px solid #f59e0b; }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s;
+        }
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 3-Tier Stock Rating Dashboard</h1>
+            <p class="timestamp">Last Updated: October 24, 2025 6:46 PM</p>
+            <div class="demo-note">
+                <strong>⚠️ DEMO MODE:</strong> This dashboard shows sample data. Install <code>yfinance</code> and run <code>auto_stock_rater.py</code> for real-time data!
+            </div>
+        </header>
+
+        <div class="summary-grid">
+            <div class="summary-card">
+                <h3>Total Stocks</h3>
+                <div class="number">15</div>
+            </div>
+            <div class="summary-card">
+                <h3>Tier 1 Avg Score</h3>
+                <div class="number">83.3</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 83.3%"></div>
+                </div>
+            </div>
+            <div class="summary-card">
+                <h3>Tier 2 Avg Score</h3>
+                <div class="number">82.0</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 82%"></div>
+                </div>
+            </div>
+            <div class="summary-card">
+                <h3>Tier 3 Avg Score</h3>
+                <div class="number">78.9</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 78.9%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alerts">
+            <h3>⚡ Alerts & Action Items</h3>
+            <div class="alert-item alert-buy">⭐ Tier 1 STRONG BUY: MSFT - Score: 85.3</div>
+            <div class="alert-item alert-buy">⭐ Tier 1 STRONG BUY: NVDA - Score: 88.7</div>
+            <div class="alert-item alert-buy">⭐ Tier 2 STRONG BUY: PLTR - Score: 86.4</div>
+            <div class="alert-item alert-buy">⭐ Tier 3 STRONG BUY: RKLB - Score: 89.9</div>
+            <div class="alert-item alert-buy">⭐ Tier 3 STRONG BUY: IONQ - Score: 85.2</div>
+            <div class="alert-item alert-warning">⚠️ Tier 3 REVIEW: COIN - Score: 64.8 (Hold ⭐⭐⭐)</div>
+        </div>
+
+        <div class="tier-section">
+            <div class="tier-header">
+                <div class="tier-title">Tier 1 (Core)</div>
+                <div class="tier-badge">45% Target | 15% Max Position</div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Price</th>
+                        <th>Market Cap</th>
+                        <th>Composite Score</th>
+                        <th>Rating</th>
+                        <th>Valuation</th>
+                        <th>Quality</th>
+                        <th>Growth</th>
+                        <th>Momentum</th>
+                        <th>Fin Health</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="stock-symbol">NVDA</td>
+                        <td>$495.20</td>
+                        <td>$1,200.0B</td>
+                        <td><span class="score score-excellent">88.7</span></td>
+                        <td class="rating">Strong Buy ⭐⭐⭐⭐⭐</td>
+                        <td>70</td>
+                        <td>95</td>
+                        <td>95</td>
+                        <td>100</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td class="stock-symbol">MSFT</td>
+                        <td>$372.15</td>
+                        <td>$2,750.0B</td>
+                        <td><span class="score score-excellent">85.3</span></td>
+                        <td class="rating">Strong Buy ⭐⭐⭐⭐⭐</td>
+                        <td>75</td>
+                        <td>98</td>
+                        <td>75</td>
+                        <td>92</td>
+                        <td>98</td>
+                    </tr>
+                    <tr>
+                        <td class="stock-symbol">GOOGL</td>
+                        <td>$140.50</td>
+                        <td>$1,800.0B</td>
+                        <td><span class="score score-good">82.4</span></td>
+                        <td class="rating">Buy ⭐⭐⭐⭐</td>
+                        <td>72</td>
+                        <td>95</td>
+                        <td>70</td>
+                        <td>90</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td class="stock-symbol">META</td>
+                        <td>$485.30</td>
+                        <td>$1,250.0B</td>
+                        <td><span class="score score-good">81.2</span></td>
+                        <td class="rating">Buy ⭐⭐⭐⭐</td>
+                        <td>78</td>
+                        <td>88</td>
+                        <td>72</td>
+                        <td>88</td>
+                        <td>92</td>
+                    </tr>
+                    <tr>
+                        <td class="stock-symbol">AAPL</td>
+                        <td>$178.25</td>
+                        <td>$2,800.0B</td>
+                        <td><span class="score score-good">79.1</span></td>
+                        <td class="rating">Buy ⭐⭐⭐⭐</td>
+                        <td>68</td>
+                        <td>92</td>
+                        <td>65</td>
+                        <td>85</td>
+                        <td>95</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tier-section">
+            <div class="tier-header">
+                <div class="tier-title">Tier 2 (Emerging)</div>
+                <div class="tier-badge">30% Target | 8% Max Position</div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Price</th>
+                        <th>Market Cap</th>
+                        <th>Composite Score</th>
+                        <th>Rating</th>
+                        <th>Valuation</th>
+                        <th>Quality</th>
+                        <th>Growth</th>
+                        <th>Momentum</th>
+                        <th>Moat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="stock-symbol">PLTR</td>
+                        <td>$28.50</td>
+                        <td>$65.0B</td>
+                        <td><span class="score score-excellent">86.4</span></td>
+                        <td class="rating">Strong Buy ⭐⭐⭐⭐⭐</td>
+                        <td>61</td>
+                        <td>89</td>
+                        <td>92</td>
+                        <td>93</td>
+                        <td>98</td>
+                    </tr>
+                    <tr>
+                        <td class="stock-symbol">CRWD</td>
+                        <td>$295.40</td>
+                        <td>$72.0B</td>
+                        <td><span class="score score-good">84.2</span></td>
+                        <td class="rating">Buy ⭐⭐⭐⭐</td>
+                        <td>58</td>
+                        <td>90</td>
+                        <td>90</td>
+                        <td>95</td>
+                        <td>92</td>
+                    </tr>
+                    <tr>
+                        <td class="stock-symbol">DDOG</td>
+                        <td>$115.80</td>
+                        <td>$39.0B</td>
+                        <td><span class="score score-good">80.9</span></td>
+                        <td class="rating">Buy ⭐⭐⭐⭐</td>
+                        <td>62</td>
+                        <td>87</td>
+                        <td>85</td>
+                        <td>82</td>
+                        <td>88</td>
+                    </tr>
+                    <tr>
+                        <td class="stock-symbol">NET</td>
+                        <td>$88.25</td>
+                        <td>$32.0B</td>
+                        <td><span class="score score-good">79.8</span></td>
+                        <td class="rating">Buy ⭐⭐⭐⭐</td>
+                        <td>60</td>
+                        <td>85</td>
+                        <td>87</td>
+                        <td>80</td>
+                        <td>86</td>
+                    </tr>
+                    <tr>
+                        <td class="stock-symbol">SNOW</td>
+                        <td>$142.75</td>
+                        <td>$48.0B</td>
+                        <td><span class="score score-good">78.5</span></td>
+                        <td class="rating">Buy ⭐⭐⭐⭐</td>
+                        <td>55</td>
+                        <td>82</td>
+                        <td>88</td>
+                        <td>78</td>
+                        <td>85</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tier-section">
+            <div class="tier-header">
+                <div class="tier-title">Tier 3 (Moonshots)</div>
+                <div class="tier-badge">20% Target | 3% Max | STOP LOSS: -40%</div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Price</th>
+                        <th>Stop Loss</th>
+                        <th>Composite Score</th>
+                        <th>Rating</th>
+                        <th>Valuation</th>
+                        <th>Quality</th>
+                        <th>Growth</th>
+                        <th>Momentum</th>
+                        <th>Disruption</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="stock-symbol">RKLB</td>
+                        <td>$9.50</td>
+                        <td>$5.70</td>
+                        <td><span class="score score-excellent">89.9</span></td>
+                        <td class="rating">Strong Buy ⭐⭐⭐⭐⭐</td>
+                        <td>78</td>
+                        <td>75</td>
+                        <td>94</td>
+                        <td>96</td>
+                        <td>93</td>
+                    </tr>
+                    <tr>
+                        <td class="stock-symbol">IONQ</td>
+                        <td>$12.35</td>
+                        <td>$7.41</td>
+                        <td><span class="score score-excellent">85.2</span></td>
+                        <td class="rating">Strong Buy ⭐⭐⭐⭐⭐</td>
+                        <td>55</td>
+                        <td>65</td>
+                        <td>95</td>
+                        <td>88</td>
+                        <td>95</td>
+                    </tr>
+                    <tr>
+                        <td class="stock-symbol">HOOD</td>
+                        <td>$28.90</td>
+                        <td>$17.34</td>
+                        <td><span class="score score-good">78.3</span></td>
+                        <td class="rating">Buy ⭐⭐⭐⭐</td>
+                        <td>62</td>
+                        <td>70</td>
+                        <td>82</td>
+                        <td>85</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <td class="stock-symbol">SOFI</td>
+                        <td>$10.85</td>
+                        <td>$6.51</td>
+                        <td><span class="score score-good">76.1</span></td>
+                        <td class="rating">Buy ⭐⭐⭐⭐</td>
+                        <td>68</td>
+                        <td>72</td>
+                        <td>80</td>
+                        <td>78</td>
+                        <td>75</td>
+                    </tr>
+                    <tr>
+                        <td class="stock-symbol">COIN</td>
+                        <td>$235.40</td>
+                        <td>$141.24</td>
+                        <td><span class="score score-moderate">64.8</span></td>
+                        <td class="rating">Hold ⭐⭐⭐</td>
+                        <td>45</td>
+                        <td>62</td>
+                        <td>70</td>
+                        <td>72</td>
+                        <td>68</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>🤖 Generated with Automated Stock Rating System (DEMO MODE)</p>
+            <p>Install yfinance for real-time data: <code>pip install yfinance pandas numpy</code></p>
+        </footer>
+    </div>
+</body>
+</html>
