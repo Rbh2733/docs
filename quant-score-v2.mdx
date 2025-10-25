@@ -1,0 +1,80 @@
+---
+title: 'Adjusted Quant Score v2'
+description: 'Detailed breakdown and Excel implementation for evaluating stocks'
+---
+
+This document outlines the adjusted quantitative scoring model (Quant Score v2) for evaluating stocks and provides guidance on implementing it in Microsoft Excel.
+
+## Components and Weights
+
+1. **Financial Health (40\%)**
+   • **P/E Ratio Score** – normalized relative to the industry average.
+   • **Debt-to-Equity Score** – inverse of leverage; lower values receive higher scores.
+   • **Free Cash Flow Yield Score** – free cash flow divided by market capitalization, scaled to a 0–1 range.
+   All three metrics are averaged to obtain the Financial Health score.
+
+2. **Market Sentiment (30\%)** – subdivided into:
+   • **Fund Flows / ETF Inflows** (10\% of total score) – measures net inflows/outflows relative to assets under management.
+   • **Options Flow (Unusual Activity)** (10\%) – compares call/put volume and adjusts for open interest.
+   • **Smart Money Index (SMI)** (5\%) – gauges institutional trading by standardizing the SMI relative to its 20-day mean.
+   • **Analyst Estimate Revisions** (5\%) – percentage of analysts raising vs. lowering estimates in the last month.
+
+3. **Technical Setup (20\%)**
+   • **RSI Score** – the Relative Strength Index divided by 100.
+   • **MACD Score** – 1 if the MACD line is above its signal line, otherwise 0.
+   • **Trend Score** – assigns 0.5 if the price is above the 50-day moving average and 0.5 if above the 200-day average.
+   These three are averaged to obtain the Technical Setup score.
+
+4. **Earnings Surprise (10\%)**
+   • **Revenue Growth Score** – year-over-year revenue growth normalized against a sector target.
+   • **EPS Surprise Score** – 1 if actual EPS exceeds analysts’ estimates (beat) or 0 if it misses.
+   Their average yields the Earnings Surprise score.
+
+## Final Quant Score Formula
+
+After calculating each sub-score, the final Quant Score is a weighted sum:
+
+```
+Quant Score = 0.4*FinancialHealth
+            + 0.1*FundFlows
+            + 0.1*OptionsFlow
+            + 0.05*SMI
+            + 0.05*AnalystRevisions
+            + 0.2*TechnicalSetup
+            + 0.1*EarningsSurprise
+```
+
+The weights ensure that the Market Sentiment sub-metrics collectively contribute 30\% (10\% + 10\% + 5\% + 5\%) of the final score.
+
+## Example Excel Implementation
+
+### Cell Layout (example)
+
+| Cell | Description | Formula/Value |
+|-----|-------------|---------------|
+| **B2** | P/E Ratio | Enter raw P/E (e.g., `35.2`) |
+| **C2** | P/E Score | `=MIN(1, (Industry_PE/B2))` |
+| **B3** | Debt-to-Equity | Enter raw D/E (e.g., `0.48`) |
+| **C3** | D/E Score | `=MIN(1, (Max_DE/B3))` |
+| **B4** | FCF Yield | Enter FCF yield (e.g., `0.55%`) |
+| **C4** | FCF Score | `=MIN(1, B4/Target_FCF_Yield)` |
+| **C5** | Financial Health | `=AVERAGE(C2:C4)` |
+| **D2** | Fund Flows Score | `=MIN(1, FundFlowRatio/Max_FundFlowRatio)` |
+| **D3** | Options Flow Score | `=MIN(1, CallPutRatio/Target_CallPut)` |
+| **D4** | SMI Score | `=MIN(1, (SMI_Today - SMI_Mean)/SMI_StdDev)` |
+| **D5** | Analyst Revisions Score | `=IF(AnalystRaisePct > AnalystLowerPct,1,IF(AnalystRaisePct=AnalystLowerPct,0.5,0))` |
+| **E2** | RSI Score | `=RSI/100` |
+| **E3** | MACD Score | `=IF(MACD > SignalLine, 1, 0)` |
+| **E4** | Trend Score | `=IF(CurrentPrice > SMA50,0.5,0) + IF(CurrentPrice > SMA200,0.5,0)` |
+| **E5** | Technical Setup | `=AVERAGE(E2:E4)` |
+| **F2** | Revenue Growth Score | `=MIN(1, YoYRevenueGrowth/Target_RevenueGrowth)` |
+| **F3** | EPS Surprise Score | `=IF(Actual_EPS>Estimate_EPS,1,0)` |
+| **F4** | Earnings Surprise | `=AVERAGE(F2:F3)` |
+| **G6** | **Final Quant Score** | `=0.4*C5+0.1*D2+0.1*D3+0.05*D4+0.05*D5+0.2*E5+0.1*F4` |
+
+### Notes
+
+1. Replace `Industry_PE`, `Max_DE`, `Target_FCF_Yield`, `Max_FundFlowRatio`, `Target_CallPut`, `SMI_Mean`, `SMI_StdDev`, `Target_RevenueGrowth`, `AnalystRaisePct`, `AnalystLowerPct`, `RSI`, `MACD`, `SignalLine`, `CurrentPrice`, `SMA50`, `SMA200`, `YoYRevenueGrowth`, `Actual_EPS`, and `Estimate_EPS` with actual input values or cell references.
+2. The formulas above return a value between 0 and 1 for each sub-metric; these are combined in the final formula to produce the Quant Score.
+3. This file serves as a template; adjust the input targets and thresholds based on sector norms and your own risk tolerance.
+
